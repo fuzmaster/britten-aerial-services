@@ -24,8 +24,8 @@ export default function Footer() {
           <p>{site.serviceArea}</p>
         </div>
         <div className="text-sm text-slate-600 md:text-right">
-          <p>{site.email}</p>
-          <p>{site.phone}</p>
+          <p className="text-base font-semibold text-slate-900">{site.email}</p>
+          <p className="text-base font-semibold text-slate-900">{site.phone}</p>
           <Link href="/contact" className="btn-primary mt-4 w-full md:w-auto">Book a Shoot</Link>
         </div>
       </div>

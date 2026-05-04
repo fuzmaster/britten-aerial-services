@@ -21,6 +21,7 @@ export default function SocialProof() {
             </div>
           ))}
         </div>
+        <p className="mt-6 text-sm text-slate-600">Real testimonials and client quotes should be added here before launch.</p>
       </div>
     </section>
   );

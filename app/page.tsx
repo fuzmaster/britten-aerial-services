@@ -16,7 +16,7 @@ export default function HomePage() {
 					<div>
 						<p className="text-sm font-bold uppercase tracking-[0.25em] text-sky-300">FAA Licensed • Massachusetts Based</p>
 						<h1 className="mt-5 max-w-4xl text-4xl font-black tracking-tight sm:text-6xl">Make your listing look ready to sell</h1>
-						<p className="mt-6 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">{site.name} helps real estate agents, homeowners, and businesses capture clean aerial photos, listing media, inspection photos, and marketing videos with fast turnaround.</p>
+						<p className="mt-6 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">FAA-licensed drone, photo, video, and listing media for Massachusetts agents, homeowners, and property professionals. Fast delivery, clean edits, and media built for MLS, social, and marketing.</p>
 						<div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
 							<Link href="/contact" className="btn-primary w-full sm:w-auto">Book a Shoot</Link>
 							<Link href="/services" className="btn-secondary w-full sm:w-auto">View Services</Link>
@@ -56,6 +56,7 @@ export default function HomePage() {
 			</section>
 			<section className="container-pad py-16">
 				<SectionHeader eyebrow="Packages" title="Choose the package that fits the listing" text="Simple package options that reduce decision friction and get your property media moving." />
+				<p className="mx-auto mt-4 max-w-3xl text-center text-sm text-slate-600">Custom quotes based on property size, services needed, and turnaround.</p>
 				<div className="mt-10 grid gap-5 md:grid-cols-3">
 					{packages.map((p) => <article className={p.recommended ? "rounded-3xl border-2 border-skybrand bg-white p-6 shadow-md" : "card"} key={p.name}><div className="flex items-center justify-between gap-3"><h3 className="text-xl font-bold text-slate-950">{p.name}</h3>{p.recommended ? <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-sky-800">Recommended</span> : null}</div><p className="mt-2 text-slate-600"><span className="font-semibold text-slate-900">Best for:</span> {p.bestFor}</p><ul className="mt-4 space-y-2 text-sm text-slate-700">{p.items.map(i => <li key={i}>- {i}</li>)}</ul><Link href="/contact" className="btn-primary mt-6 w-full">{p.ctaLabel}</Link></article>)}
 				</div>
@@ -64,8 +65,7 @@ export default function HomePage() {
 			<section className="container-pad py-16">
 				<SectionHeader eyebrow="Portfolio" title="Recent property media work" text="Real local property visuals across drone, interiors, detail photography, and listing-ready assets." />
 				<div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-					{/* Keep only portfolio items with confirmed production image paths to avoid blank cards. */}
-					{portfolio.filter((item) => item.image.startsWith("/assets/")).map((item, index) => <PortfolioCard key={item.title} item={item} priority={index === 0} />)}
+					{portfolio.map((item, index) => <PortfolioCard key={item.title} item={item} priority={index === 0} eager={true} />)}
 				</div>
 			</section>
 			<CTA />

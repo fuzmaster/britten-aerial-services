@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function FAQPage() {
   return (
     <>
-      <section className="container-pad py-20">
+      <section className="container-pad py-16 md:py-20">
         <SectionHeader eyebrow="FAQ" title="Questions before booking" text="Use this page to remove fear around licensing, weather, delivery, and what clients need to provide." />
         <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-3xl border border-slate-200">
           <Image

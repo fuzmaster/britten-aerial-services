@@ -27,25 +27,31 @@ export default function ServiceCard({ service, showDetails = false, priority = f
         <p className="text-slate-600">{service.description}</p>
         {showDetails ? (
           <>
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-900">Best for</p>
             <p className="text-sm text-slate-700">
-              <span className="font-semibold text-slate-900">Best for:</span> {service.bestFor}
+              {service.bestFor}
             </p>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-slate-900">Includes</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-900">Includes</p>
               <ul className="mt-2 space-y-1 text-sm text-slate-700">
-                {service.includes.map((item) => (
+                {service.includes.slice(0, 4).map((item) => (
                   <li key={item}>- {item}</li>
                 ))}
               </ul>
             </div>
             <Link href="/contact" className="btn-primary w-full sm:w-auto">
-              Book a Shoot
+              Book this service
             </Link>
           </>
         ) : (
-          <Link href="/services" className="inline-flex items-center text-sm font-semibold text-skybrand hover:text-sky-700">
-            Learn more
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/services" className="inline-flex items-center text-sm font-semibold text-skybrand hover:text-sky-700">
+              Learn more
+            </Link>
+            <Link href="/contact" className="inline-flex items-center text-sm font-semibold text-slate-900 hover:text-sky-700">
+              Book this service
+            </Link>
+          </div>
         )}
       </div>
     </article>

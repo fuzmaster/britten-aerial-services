@@ -17,7 +17,7 @@ export default function Showreel({
   return (
     <section className="container-pad py-16">
       <div className="overflow-hidden rounded-[2rem] border border-slate-800 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.2),transparent_40%),linear-gradient(140deg,#020617,#0f172a)] text-white shadow-2xl shadow-slate-950/30">
-        <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:p-10">
+        <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[.8fr_1.2fr] lg:items-center lg:p-10">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-sky-300">{eyebrow}</p>
             <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">{title}</h2>
@@ -26,7 +26,7 @@ export default function Showreel({
               Watch the reel
             </p>
           </div>
-          <div className="rounded-[1.75rem] border border-white/10 bg-black/40 p-3 shadow-xl">
+          <div className="rounded-[1.75rem] border border-white/10 bg-black/40 p-2 shadow-xl sm:p-3">
             <div className="overflow-hidden rounded-[1.25rem] bg-slate-900">
               {/* Large MP4 files should be compressed before deployment to protect page speed. */}
               <video

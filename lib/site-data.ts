@@ -91,19 +91,19 @@ export const packages: Package[] = [
     name: "Starter Listing Photos",
     bestFor: "Condos, rentals, and smaller homes that need clean launch-ready media.",
     items: ["25 to 35 edited photos", "Interior and exterior coverage", "MLS-ready export", "Fast digital delivery"],
-    ctaLabel: "Book starter package",
+    ctaLabel: "Request starter quote",
   },
   {
     name: "Aerial Add-On Package",
     bestFor: "Homes with lot size, waterfront views, and neighborhood context worth showing.",
     items: ["8 to 12 edited aerial photos", "Context and elevation angles", "High-resolution exports", "Social-ready versions"],
-    ctaLabel: "Book aerial add-on",
+    ctaLabel: "Request aerial quote",
   },
   {
     name: "Premium Listing Package",
     bestFor: "Higher-value listings and agents who want complete marketing coverage.",
     items: ["Interior and exterior photos", "Drone photos", "Walkthrough video", "Floor plan add-on option"],
-    ctaLabel: "Book premium package",
+    ctaLabel: "Request premium quote",
     recommended: true,
   },
 ];
@@ -115,6 +115,7 @@ export type PortfolioItem = {
   image: string;
 };
 
+// All portfolio image paths must point to confirmed files in public/assets. Do not add placeholders to production.
 export const portfolio: PortfolioItem[] = [
   {
     title: "Residential Listing Media",
@@ -150,7 +151,7 @@ export const portfolio: PortfolioItem[] = [
     title: "Scenic Aerial Prints",
     category: "Prints",
     description: "Massachusetts aerial landscape photography for print and portfolio use.",
-    image: "/assets/prints/bas-scenic-aerial-print-massachusetts-01.jpg",
+    image: "/assets/prints/bas-scenic-aerial-print-massachusetts-02.jpg",
   },
 ];
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="container-pad grid gap-10 py-20 md:grid-cols-[.9fr_1.1fr]">
+    <section className="container-pad grid gap-10 py-16 md:grid-cols-[.9fr_1.1fr] md:py-20">
       <div>
         <p className="text-sm font-bold uppercase tracking-[0.2em] text-skybrand">Book a Shoot</p>
         <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Tell us what you need</h1>
@@ -32,7 +32,7 @@ export default function ContactPage() {
         </div>
       </div>
       <form className="card space-y-4" action={`mailto:${site.email}`} method="post" encType="text/plain" aria-describedby="contact-form-help">
-        <p id="contact-form-help" className="text-sm text-slate-600">For faster scheduling, include the property address, preferred date, and services needed.</p>
+        <p id="contact-form-help" className="text-sm text-slate-600">This opens your email app with your request details. For the fastest response, you can also email or call directly.</p>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Name</span><input name="name" type="text" autoComplete="name" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Email</span><input name="email" type="email" autoComplete="email" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Phone</span><input name="phone" type="tel" autoComplete="tel" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
@@ -41,7 +41,7 @@ export default function ContactPage() {
         <label className="block"><span className="text-sm font-semibold text-slate-700">Service needed</span><select name="serviceNeeded" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3"><option>Real Estate Photography</option><option>Drone Photography</option><option>Drone Video</option><option>Roof Inspection Photos</option><option>Floor Plans & Tours</option><option>Marketing Video Production</option><option>Other / Not sure yet</option></select></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Message / notes</span><textarea name="message" className="mt-2 min-h-32 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <button type="submit" className="btn-primary w-full">Prepare Email</button>
-        {/* TODO: Connect form to Formspree, Resend, or API route. */}
+        {/* TODO: Replace mailto fallback with Formspree, Resend, or API route before paid ads. */}
         <p className="text-xs text-slate-500">This fallback opens your email client with the form details. Connect this form to Formspree, Resend, or an API route when ready.</p>
       </form>
     </section>

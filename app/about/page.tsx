@@ -13,7 +13,7 @@ export default function AboutPage() {
     <>
       <section className="container-pad grid gap-10 py-20 md:grid-cols-[.8fr_1.2fr] md:items-center">
         <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-          {/* TODO: Replace with a real Jacob/operator portrait when available. */}
+          {/* TODO: Replace media.aboutFallback with a real Jacob/operator portrait before launch. */}
           <Image
             src={media.aboutFallback}
             alt="Britten Aerial Services brand coastal drone photo"
@@ -27,6 +27,7 @@ export default function AboutPage() {
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-skybrand">About</p>
           <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">A local media partner for property professionals</h1>
           <p className="mt-6 text-lg leading-8 text-slate-600">{site.name} is a Massachusetts-based drone photography and real estate media company led by FAA-licensed drone pilot and video editor Jacob Britten.</p>
+          <p className="mt-4 text-lg leading-8 text-slate-600">You work directly with a local FAA-licensed drone operator and editor from shoot planning through final delivery.</p>
           <p className="mt-4 text-lg leading-8 text-slate-600">The goal is simple: make every project look sharp, trustworthy, and ready to use online.</p>
           <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-xl font-bold text-slate-950">Why clients hire us</h2>
