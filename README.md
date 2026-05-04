@@ -1,6 +1,8 @@
-# Britten Aerial Services Website Starter
+# Britten Aerial Services
 
-A clean Next.js starter website for rebuilding Britten Aerial Services as a professional real estate media, drone photography, inspection, and marketing video website.
+This is a reconstruction of the old Britten Aerial Services website I had. The original site was built on Squarespace and has since been taken down. This version is rebuilt from scratch using Next.js, Tailwind CSS, and real brand assets — same business, cleaner codebase, fully owned.
+
+Britten Aerial Services is an FAA-licensed drone photography and real estate media company based in Peabody, MA, serving the North Shore and surrounding Massachusetts communities.
 
 ## Run locally
 
