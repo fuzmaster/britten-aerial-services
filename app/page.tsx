@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import CTA from "@/components/CTA";
+import ServiceCard from "@/components/ServiceCard";
+import PortfolioCard from "@/components/PortfolioCard";
+import SocialProof from "@/components/SocialProof";
 import Showreel from "@/components/Showreel";
 import SectionHeader from "@/components/SectionHeader";
-import { packages, portfolio, services, site } from "@/lib/site-data";
+import { media, packages, portfolio, services, site } from "@/lib/site-data";
 
 export default function HomePage() {
 	return (
@@ -12,7 +15,7 @@ export default function HomePage() {
 				<div className="container-pad grid gap-10 py-16 sm:py-20 md:min-h-[76vh] md:grid-cols-[1.1fr_.9fr] md:items-center">
 					<div>
 						<p className="text-sm font-bold uppercase tracking-[0.25em] text-sky-300">FAA Licensed • Massachusetts Based</p>
-						<h1 className="mt-5 max-w-4xl text-4xl font-black tracking-tight sm:text-6xl">Professional Drone & Real Estate Media in Massachusetts</h1>
+						<h1 className="mt-5 max-w-4xl text-4xl font-black tracking-tight sm:text-6xl">Make your listing look ready to sell</h1>
 						<p className="mt-6 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">{site.name} helps real estate agents, homeowners, and businesses capture clean aerial photos, listing media, inspection photos, and marketing videos with fast turnaround.</p>
 						<div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
 							<Link href="/contact" className="btn-primary w-full sm:w-auto">Book a Shoot</Link>
@@ -22,10 +25,11 @@ export default function HomePage() {
 					<div className="rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur">
 						<div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem]">
 							<Image
-								src="/assets/homepage/bas-real-estate-drone-photography-peabody-ma-hero.jpg"
+								src={media.hero}
 								alt="Aerial real estate drone view in Peabody Massachusetts"
 								width={1600}
 								height={1200}
+								sizes="(min-width: 768px) 40vw, 100vw"
 								className="h-full w-full rounded-[1.5rem] object-cover"
 								priority
 							/>
@@ -47,19 +51,21 @@ export default function HomePage() {
 			<section className="container-pad py-16">
 				<SectionHeader eyebrow="Services" title="Property media that helps people decide faster" text="Lead with the services that make clients book: real estate photography, drone media, inspections, and package add-ons." />
 				<div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-					{services.map((s) => <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm" key={s.title}><div className="bg-slate-100"><Image src={s.image} alt={s.title} width={1600} height={900} className="aspect-[4/3] w-full object-cover" /></div><div className="p-6"><h3 className="text-xl font-bold text-slate-950">{s.title}</h3><p className="mt-3 text-slate-600">{s.description}</p></div></article>)}
+					{services.map((service, index) => <ServiceCard key={service.title} service={service} priority={index === 0} />)}
 				</div>
 			</section>
 			<section className="container-pad py-16">
-				<SectionHeader eyebrow="Packages" title="Simple real estate media packages" text="Agents want clarity. Keep the package choices simple and push custom details into the contact form." />
+				<SectionHeader eyebrow="Packages" title="Choose the package that fits the listing" text="Simple package options that reduce decision friction and get your property media moving." />
 				<div className="mt-10 grid gap-5 md:grid-cols-3">
-					{packages.map((p) => <div className="card" key={p.name}><h3 className="text-xl font-bold text-slate-950">{p.name}</h3><p className="mt-2 text-slate-600">{p.bestFor}</p><ul className="mt-4 space-y-2 text-sm text-slate-700">{p.items.map(i => <li key={i}>• {i}</li>)}</ul></div>)}
+					{packages.map((p) => <article className={p.recommended ? "rounded-3xl border-2 border-skybrand bg-white p-6 shadow-md" : "card"} key={p.name}><div className="flex items-center justify-between gap-3"><h3 className="text-xl font-bold text-slate-950">{p.name}</h3>{p.recommended ? <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-sky-800">Recommended</span> : null}</div><p className="mt-2 text-slate-600"><span className="font-semibold text-slate-900">Best for:</span> {p.bestFor}</p><ul className="mt-4 space-y-2 text-sm text-slate-700">{p.items.map(i => <li key={i}>- {i}</li>)}</ul><Link href="/contact" className="btn-primary mt-6 w-full">{p.ctaLabel}</Link></article>)}
 				</div>
 			</section>
+			<SocialProof />
 			<section className="container-pad py-16">
-				<SectionHeader eyebrow="Portfolio" title="Proof beats promises" text="Start with only the strongest 6 portfolio cards. Do not turn the website into a file archive." />
+				<SectionHeader eyebrow="Portfolio" title="Recent property media work" text="Real local property visuals across drone, interiors, detail photography, and listing-ready assets." />
 				<div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-					{portfolio.map((item, index) => <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm" key={item.title}><div className="bg-slate-100"><Image src={item.image} alt={item.title} width={1200} height={900} sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw" priority={index === 0} className="aspect-[4/3] w-full object-cover" /></div><div className="p-6"><p className="text-xs font-bold uppercase tracking-wider text-skybrand">{item.category}</p><h3 className="mt-2 font-bold text-slate-950">{item.title}</h3><p className="mt-2 text-sm text-slate-600">{item.description}</p></div></article>)}
+					{/* Keep only portfolio items with confirmed production image paths to avoid blank cards. */}
+					{portfolio.filter((item) => item.image.startsWith("/assets/")).map((item, index) => <PortfolioCard key={item.title} item={item} priority={index === 0} />)}
 				</div>
 			</section>
 			<CTA />

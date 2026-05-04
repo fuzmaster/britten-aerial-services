@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import CTA from "@/components/CTA";
-import { site } from "@/lib/site-data";
+import { media, site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About | Britten Aerial Services",
@@ -15,11 +15,11 @@ export default function AboutPage() {
         <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
           {/* TODO: Replace with a real Jacob/operator portrait when available. */}
           <Image
-            src="/assets/portfolio/bas-coastal-drone-photography-lighthouse-bridge-01.jpg"
+            src={media.aboutFallback}
             alt="Britten Aerial Services brand coastal drone photo"
             width={1200}
             height={1500}
-            priority
+            sizes="(min-width: 768px) 35vw, 100vw"
             className="h-full w-full rounded-[2rem] object-cover"
           />
         </div>
@@ -28,8 +28,14 @@ export default function AboutPage() {
           <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">A local media partner for property professionals</h1>
           <p className="mt-6 text-lg leading-8 text-slate-600">{site.name} is a Massachusetts-based drone photography and real estate media company led by FAA-licensed drone pilot and video editor Jacob Britten.</p>
           <p className="mt-4 text-lg leading-8 text-slate-600">The goal is simple: make every project look sharp, trustworthy, and ready to use online.</p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {['FAA Licensed Drone Pilot','Real Estate Media Experience','Professional Editing Workflow','Massachusetts-Based'].map(x => <div className="card" key={x}>{x}</div>)}
+          <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="text-xl font-bold text-slate-950">Why clients hire us</h2>
+            <ul className="mt-4 grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
+              <li>- FAA-compliant drone operation</li>
+              <li>- MLS/social-ready media</li>
+              <li>- Fast digital delivery</li>
+              <li>- Real estate-focused workflow</li>
+            </ul>
           </div>
         </div>
       </section>

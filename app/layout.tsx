@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { media, services, site } from "@/lib/site-data";
 
 const title = "Britten Aerial Services | Drone Photography & Real Estate Media in MA";
 const description = "FAA-licensed drone photography, real estate media, roof inspection photos, property videos, floor plans, and marketing visuals based in Peabody, Massachusetts.";
@@ -9,10 +10,12 @@ const description = "FAA-licensed drone photography, real estate media, roof ins
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Britten Aerial Services",
+  name: site.name,
   url: "https://brittenaerialservices.com",
-  telephone: "774-231-8523",
-  email: "brittenaerialservices@gmail.com",
+  image: media.hero,
+  telephone: site.phone,
+  email: site.email,
+  priceRange: "$$",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Peabody",
@@ -20,6 +23,18 @@ const localBusinessSchema = {
     addressCountry: "US",
   },
   areaServed: "North Shore Massachusetts",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Media services",
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+      },
+    })),
+  },
   description: "FAA-licensed drone photography and real estate media company serving Massachusetts.",
 };
 
@@ -43,13 +58,13 @@ export const metadata: Metadata = {
     siteName: "Britten Aerial Services",
     type: "website",
     locale: "en_US",
-    images: ["/assets/homepage/bas-real-estate-drone-photography-peabody-ma-hero.jpg"],
+    images: [media.hero],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/assets/homepage/bas-real-estate-drone-photography-peabody-ma-hero.jpg"],
+    images: [media.hero],
   },
 };
 

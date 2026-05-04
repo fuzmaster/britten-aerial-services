@@ -16,18 +16,15 @@ export default function Showreel({
 }: ShowreelProps) {
   return (
     <section className="container-pad py-16">
-      <div className="overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-950 text-white shadow-2xl shadow-slate-950/20">
-        <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:p-10">
+      <div className="overflow-hidden rounded-[2rem] border border-slate-800 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.2),transparent_40%),linear-gradient(140deg,#020617,#0f172a)] text-white shadow-2xl shadow-slate-950/30">
+        <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:p-10">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-sky-300">{eyebrow}</p>
             <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">{title}</h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">{description}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link href="/contact" className="btn-primary w-full sm:w-auto">
-                Book a Shoot
-              </Link>
-              <p className="text-sm text-slate-400">Muted preview for fast browsing. Compress the MP4 before production deployment.</p>
-            </div>
+            <p className="mt-6 inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-200">
+              Watch the reel
+            </p>
           </div>
           <div className="rounded-[1.75rem] border border-white/10 bg-black/40 p-3 shadow-xl">
             <div className="overflow-hidden rounded-[1.25rem] bg-slate-900">
@@ -42,10 +39,16 @@ export default function Showreel({
                 preload="metadata"
                 controls={withControls}
                 aria-label="Britten Aerial Services showreel video"
-                className="h-full w-full object-cover"
+                className="aspect-video h-full w-full object-cover"
               >
                 Your browser does not support the BAS showreel video. Use the contact page to request a direct link.
               </video>
+            </div>
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-slate-300">Drone, photo, inspection, and listing media across Massachusetts.</p>
+              <Link href="/contact" className="btn-primary w-full sm:w-auto">
+                Book a Shoot
+              </Link>
             </div>
           </div>
         </div>

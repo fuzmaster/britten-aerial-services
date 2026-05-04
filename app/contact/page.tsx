@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { site } from "@/lib/site-data";
+import Link from "next/link";
+import { media, site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Contact | Britten Aerial Services",
@@ -16,17 +17,21 @@ export default function ContactPage() {
         <p className="mt-6 text-lg leading-8 text-slate-600">For faster scheduling, include the property address, preferred date, and services needed.</p>
         <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200">
           <Image
-            src="/assets/contact/bas-real-estate-drone-photography-ma-contact.jpg"
+            src={media.contact}
             alt="Britten Aerial Services contact page property drone view"
             width={1600}
             height={1200}
-            priority
+            sizes="(min-width: 768px) 35vw, 100vw"
             className="h-full w-full object-cover"
           />
         </div>
         <div className="mt-8 space-y-2 text-slate-700"><p>{site.email}</p><p>{site.phone}</p><p>{site.location}</p></div>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link href={`mailto:${site.email}`} className="btn-secondary w-full">Email Us</Link>
+          <Link href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className="btn-secondary w-full">Call Now</Link>
+        </div>
       </div>
-      <form className="card space-y-4" aria-describedby="contact-form-help">
+      <form className="card space-y-4" action={`mailto:${site.email}`} method="post" encType="text/plain" aria-describedby="contact-form-help">
         <p id="contact-form-help" className="text-sm text-slate-600">For faster scheduling, include the property address, preferred date, and services needed.</p>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Name</span><input name="name" type="text" autoComplete="name" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Email</span><input name="email" type="email" autoComplete="email" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
@@ -35,9 +40,9 @@ export default function ContactPage() {
         <label className="block"><span className="text-sm font-semibold text-slate-700">Preferred shoot date</span><input name="preferredDate" type="date" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Service needed</span><select name="serviceNeeded" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3"><option>Real Estate Photography</option><option>Drone Photography</option><option>Drone Video</option><option>Roof Inspection Photos</option><option>Floor Plans & Tours</option><option>Marketing Video Production</option><option>Other / Not sure yet</option></select></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Message / notes</span><textarea name="message" className="mt-2 min-h-32 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
-        <button type="button" className="btn-primary w-full">Book a Shoot</button>
+        <button type="submit" className="btn-primary w-full">Prepare Email</button>
         {/* TODO: Connect form to Formspree, Resend, or API route. */}
-        <p className="text-xs text-slate-500">Front-end only for now. Connect this form to Formspree, Resend, or an API route when ready.</p>
+        <p className="text-xs text-slate-500">This fallback opens your email client with the form details. Connect this form to Formspree, Resend, or an API route when ready.</p>
       </form>
     </section>
   );
