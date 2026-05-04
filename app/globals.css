@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+body { margin: 0; background: #f8fafc; color: #111827; }
+.hero-gradient { background: radial-gradient(circle at top left, rgba(2,132,199,.18), transparent 36%), linear-gradient(135deg, #0f172a, #111827); }
+.container-pad { @apply mx-auto max-w-7xl px-5 sm:px-6 lg:px-8; }
+.btn-primary { @apply inline-flex items-center justify-center rounded-full bg-skybrand px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-sky-700; }
+.btn-secondary { @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-900 transition hover:bg-slate-100; }
+.card { @apply rounded-3xl border border-slate-200 bg-white p-6 shadow-sm; }

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#e2e8f0"/>
+  <rect x="80" y="80" width="1040" height="640" rx="40" fill="#f8fafc"/>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial" font-size="48" font-weight="700" fill="#0f172a">Replace With BAS Image</text>
+  <text x="600" y="455" text-anchor="middle" font-family="Arial" font-size="28" fill="#475569">Website-ready asset placeholder</text>
+</svg>
