@@ -29,6 +29,17 @@ export default function AboutPage() {
           <p className="mt-6 text-lg leading-8 text-slate-600">{site.name} is a Massachusetts-based drone photography and real estate media company led by FAA-licensed drone pilot and video editor Jacob Britten.</p>
           <p className="mt-4 text-lg leading-8 text-slate-600">You work directly with a local FAA-licensed drone operator and editor from shoot planning through final delivery.</p>
           <p className="mt-4 text-lg leading-8 text-slate-600">The goal is simple: make every project look sharp, trustworthy, and ready to use online.</p>
+          <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-6">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-skybrand">Meet Jacob</p>
+            <h2 className="mt-3 text-2xl font-bold text-slate-950">The person handling the shoot is the person delivering the final media</h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">Jacob handles planning, shooting, editing, and delivery with a workflow built around real estate listings, property documentation, and fast turnarounds for local clients.</p>
+            <ul className="mt-5 grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
+              <li>- Local FAA-licensed drone operator</li>
+              <li>- Real estate-focused workflow</li>
+              <li>- Planning, shooting, editing, and delivery</li>
+              <li>- Based in {site.location}, serving {site.serviceArea}</li>
+            </ul>
+          </div>
           <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-xl font-bold text-slate-950">Why clients hire us</h2>
             <ul className="mt-4 grid gap-3 text-sm text-slate-700 sm:grid-cols-2">

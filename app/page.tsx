@@ -3,7 +3,7 @@ import Image from "next/image";
 import CTA from "@/components/CTA";
 import ServiceCard from "@/components/ServiceCard";
 import PortfolioCard from "@/components/PortfolioCard";
-import SocialProof from "@/components/SocialProof";
+import TrustProof from "@/components/TrustProof";
 import Showreel from "@/components/Showreel";
 import SectionHeader from "@/components/SectionHeader";
 import { media, packages, portfolio, services, site } from "@/lib/site-data";
@@ -61,7 +61,7 @@ export default function HomePage() {
 					{packages.map((p) => <article className={p.recommended ? "rounded-3xl border-2 border-skybrand bg-white p-6 shadow-md" : "card"} key={p.name}><div className="flex items-center justify-between gap-3"><h3 className="text-xl font-bold text-slate-950">{p.name}</h3>{p.recommended ? <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-sky-800">Recommended</span> : null}</div><p className="mt-2 text-slate-600"><span className="font-semibold text-slate-900">Best for:</span> {p.bestFor}</p><ul className="mt-4 space-y-2 text-sm text-slate-700">{p.items.map(i => <li key={i}>- {i}</li>)}</ul><Link href="/contact" className="btn-primary mt-6 w-full">{p.ctaLabel}</Link></article>)}
 				</div>
 			</section>
-			<SocialProof />
+			<TrustProof />
 			<section className="container-pad py-16">
 				<SectionHeader eyebrow="Portfolio" title="Recent property media work" text="Real local property visuals across drone, interiors, detail photography, and listing-ready assets." />
 				<div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">

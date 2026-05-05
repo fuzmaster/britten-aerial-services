@@ -28,7 +28,7 @@ export default function Showreel({
           </div>
           <div className="rounded-[1.75rem] border border-white/10 bg-black/40 p-2 shadow-xl sm:p-3">
             <div className="overflow-hidden rounded-[1.25rem] bg-slate-900">
-              {/* Large MP4 files should be compressed before deployment to protect page speed. */}
+              {/* Use compressed 1080p H.264 web MP4 before production. */}
               <video
                 src={media.showreel}
                 poster={media.showreelPoster}
@@ -46,9 +46,14 @@ export default function Showreel({
             </div>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-slate-300">Drone, photo, inspection, and listing media across Massachusetts.</p>
-              <Link href="/contact" className="btn-primary w-full sm:w-auto">
-                Book a Shoot
-              </Link>
+              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                <Link href="/portfolio" className="btn-secondary w-full sm:w-auto">
+                  View Portfolio
+                </Link>
+                <Link href="/contact" className="btn-primary w-full sm:w-auto">
+                  Book a Shoot
+                </Link>
+              </div>
             </div>
           </div>
         </div>

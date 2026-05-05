@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { media, site } from "@/lib/site-data";
 
+const formAction = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/mnjwdpkd";
+
 export const metadata: Metadata = {
   title: "Contact | Britten Aerial Services",
   description: "Book a shoot with Britten Aerial Services for drone photography, real estate media, roof inspection photos, and property marketing visuals in Massachusetts.",
@@ -31,18 +33,19 @@ export default function ContactPage() {
           <Link href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className="btn-secondary w-full">Call Now</Link>
         </div>
       </div>
-      <form className="card space-y-4" action={`mailto:${site.email}`} method="post" encType="text/plain" aria-describedby="contact-form-help">
-        <p id="contact-form-help" className="text-sm text-slate-600">This opens your email app with your request details. For the fastest response, you can also email or call directly.</p>
-        <label className="block"><span className="text-sm font-semibold text-slate-700">Name</span><input name="name" type="text" autoComplete="name" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
-        <label className="block"><span className="text-sm font-semibold text-slate-700">Email</span><input name="email" type="email" autoComplete="email" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
+      <form className="card space-y-4" action={formAction} method="POST" aria-describedby="contact-form-help">
+        {/* TODO: Move this endpoint to NEXT_PUBLIC_FORMSPREE_ENDPOINT for environment-specific configs. */}
+        <input type="hidden" name="_subject" value="New Britten Aerial Services inquiry" />
+        <p id="contact-form-help" className="text-sm text-slate-600">This form is wired for Formspree. Until the live form ID is added, use the direct email or phone buttons if submission is not yet active.</p>
+        <label className="block"><span className="text-sm font-semibold text-slate-700">Name</span><input name="name" type="text" autoComplete="name" required className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
+        <label className="block"><span className="text-sm font-semibold text-slate-700">Email</span><input name="email" type="email" autoComplete="email" required className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Phone</span><input name="phone" type="tel" autoComplete="tel" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Property address</span><input name="address" type="text" autoComplete="street-address" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Preferred shoot date</span><input name="preferredDate" type="date" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
         <label className="block"><span className="text-sm font-semibold text-slate-700">Service needed</span><select name="serviceNeeded" className="mt-2 w-full rounded-2xl border border-slate-300 px-4 py-3"><option>Real Estate Photography</option><option>Drone Photography</option><option>Drone Video</option><option>Roof Inspection Photos</option><option>Floor Plans & Tours</option><option>Marketing Video Production</option><option>Other / Not sure yet</option></select></label>
-        <label className="block"><span className="text-sm font-semibold text-slate-700">Message / notes</span><textarea name="message" className="mt-2 min-h-32 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
-        <button type="submit" className="btn-primary w-full">Prepare Email</button>
-        {/* TODO: Replace mailto fallback with Formspree, Resend, or API route before paid ads. */}
-        <p className="text-xs text-slate-500">This fallback opens your email client with the form details. Connect this form to Formspree, Resend, or an API route when ready.</p>
+        <label className="block"><span className="text-sm font-semibold text-slate-700">Message / notes</span><textarea name="message" required className="mt-2 min-h-32 w-full rounded-2xl border border-slate-300 px-4 py-3" /></label>
+        <button type="submit" className="btn-primary w-full">Send Inquiry</button>
+        <p className="text-xs text-slate-500">Primary path: Formspree-ready contact form. Backup path: email <Link href={`mailto:${site.email}`} className="font-semibold text-slate-700 underline decoration-slate-300 underline-offset-4">{site.email}</Link> or call directly.</p>
       </form>
     </section>
   );

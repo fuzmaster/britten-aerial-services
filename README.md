@@ -75,6 +75,20 @@ Copy-Item -Path "D:\Dropbox\Britten Aerial Services\Projects\Showreel\BAS Showre
 
 Large MP4 files can hurt page speed. Before deployment, export a web version around 1080p H.264 with a reasonable bitrate and keep the file size as low as possible.
 
+## Launch checklist
+
+- Verify all image files exist
+- Compress showreel MP4
+- Replace About fallback image with real operator portrait
+- Connect Formspree or backend contact form
+- Add real testimonials
+- Test mobile
+- Run `npm run build`
+- Deploy to Vercel
+- Add Google Search Console
+- Add analytics
+- Submit sitemap if added later
+
 Suggested production asset folder:
 
 ```txt
