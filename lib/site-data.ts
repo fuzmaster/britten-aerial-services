@@ -1,8 +1,8 @@
 export const site = {
   name: "Britten Aerial Services",
   tagline: "Drone & Real Estate Media in Massachusetts",
-  phone: "774-231-8523",
-  email: "brittenaerialservices@gmail.com",
+  phone: "",
+  email: "jacobbritten@outlook.com",
   location: "Peabody, MA",
   serviceArea: "North Shore and surrounding Massachusetts communities",
 };
@@ -23,6 +23,10 @@ export const media = {
   contact: "/assets/contact/bas-real-estate-drone-photography-ma-contact.jpg",
   faq: "/assets/faq/bas-drone-photography-faq-coastal-background.jpg",
   aboutFallback: "/assets/portfolio/bas-coastal-drone-photography-lighthouse-bridge-01.jpg",
+  logoMark: "/assets/brand/bas-logo-mark-transparent.png",
+  logoMarkBg: "/assets/brand/bas-logo-mark-bg.png",
+  logoFull: "/assets/brand/bas-logo-full-lockup.png",
+  socialCover: "/assets/brand/bas-facebook-cover-collage.png",
 };
 
 export type Service = {

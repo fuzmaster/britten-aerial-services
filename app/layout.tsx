@@ -12,8 +12,8 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: site.name,
   url: "https://brittenaerialservices.com",
-  image: media.hero,
-  telephone: site.phone,
+  logo: media.logoMark,
+  image: media.socialCover,
   email: site.email,
   priceRange: "$$",
   address: {
@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     siteName: "Britten Aerial Services",
     type: "website",
     locale: "en_US",
-    images: [media.hero],
+    images: [media.socialCover],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [media.hero],
+    images: [media.socialCover],
   },
 };
 
